@@ -17,6 +17,7 @@ namespace Database
 
     public class Utente
     {
+        [Key]
         public virtual string CodFisc { get; set; }
         public virtual string LogIn { get; set; }
         public virtual string Name { get; set; }
@@ -28,10 +29,12 @@ namespace Database
     }
     public class Segnalazione
     {
+        [Key]
         public virtual Prodotto SigProd { get; set; }
         public virtual ICollection<Commento> Comments { get; set; }
         public virtual Utente Author { get; set; }
         public virtual string State { get; set; }
+        [Key]
         public virtual DateTime CreationDate { get; set; }
         [MaxLength(256)]
         public virtual string Descr { get; set; }
@@ -39,6 +42,7 @@ namespace Database
     }
     public class Prodotto
     {
+        [Key]
         public virtual int Id { get; set; }
         public virtual string CommName { get; set; }
         public virtual ICollection<Prodotto> Req { get; set; }
@@ -46,13 +50,19 @@ namespace Database
     }
     public class Commento
     {
+        [Key]
         public virtual Utente Author { get; set; }
+        [Key]
         public virtual DateTime CreationDate { get; set; }
         public virtual string Text { get; set; }
     }
 
     public class BugReportContext : DbContext
     {
+        public DbSet<Utente> Users { get; set; }
+        public DbSet<Segnalazione> Reports { get; set; }
+        public DbSet<Prodotto> Products{ get; set; }
+        public DbSet<Commento> Comments{ get; set; }
         
     }
 
