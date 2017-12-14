@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Database
 {
@@ -51,6 +50,7 @@ namespace Database
     public class Commento
     {
         [Key]
+        [ForeignKey("AuthorCF")]
         public virtual Utente Author { get; set; }
         [Key]
         public virtual DateTime CreationDate { get; set; }
@@ -63,6 +63,12 @@ namespace Database
         public DbSet<Segnalazione> Reports { get; set; }
         public DbSet<Prodotto> Products{ get; set; }
         public DbSet<Commento> Comments{ get; set; }
+
+
+        public BugReportContext() : base("BugReportDataBase")
+        {
+            
+        }
         
     }
 

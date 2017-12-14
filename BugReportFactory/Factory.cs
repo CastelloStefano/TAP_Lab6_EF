@@ -11,6 +11,11 @@ namespace BugReportFactory
     {
         public static BugReportContext InitializeBugTracking(string connStr, string adminPwd)
         {
+            using (var db = new BugReportContext())
+            {
+                db.Database.Delete();
+                db.Database.Create();
+            }
             return null;
         }
 
