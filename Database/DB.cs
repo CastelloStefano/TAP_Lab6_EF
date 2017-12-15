@@ -21,6 +21,7 @@ namespace Database
         public virtual string LogIn { get; set; }
         public virtual string Name { get; set; }
         public virtual string Surname { get; set; }
+        [Column("DoB", TypeName = "DateTime2")]
         public virtual DateTime Dob { get; set; }
         public virtual int Age { get; set; }
         public virtual Address Indirizzo { get; set; }
@@ -34,6 +35,7 @@ namespace Database
         public virtual Utente Author { get; set; }
         public virtual string State { get; set; }
         [Key]
+        [Column("CreationDate", TypeName = "DateTime2")]
         public virtual DateTime CreationDate { get; set; }
         [MaxLength(256)]
         public virtual string Descr { get; set; }
@@ -52,6 +54,7 @@ namespace Database
         [Key]
         public virtual Utente Author { get; set; }
         [Key]
+        [Column("CreationDate", TypeName = "DateTime2")]
         public virtual DateTime CreationDate { get; set; }
         public virtual string Text { get; set; }
     }

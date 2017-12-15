@@ -19,19 +19,17 @@ namespace BugReportFactory
                 var user = new Utente(){Name = "Admin",CodFisc = "CF", Age = 12, Dob = DateTime.Today, LogIn = adminPwd, Surname = "admin", Indirizzo = new Address(){Civico = 0,Interno = 0, Via = ""}};
                 db.Users.Add(user);
                 db.SaveChanges();
-                //return db;
             }
         }
 
         public static BugReportContext LoadBugTracking(string connStr, string adminPwd)
         {
-            using (var db = new BugReportContext())
-            {
-                var query = from b in db.Users where b.Name.Equals("Admin")
-                    select b;
-                if (query.First().LogIn.Equals(adminPwd)) return db;
-            }
-            throw new Exception("Password Errata");
+            var db = new BugReportContext();
+            var query = from b in db.Users
+                        where b.Name.Equals("Admin")
+                        select b;
+            if (query.First().LogIn.Equals(adminPwd)) return db;
+            throw new NotImplementedException("Password Errata");
         }
     }
 }
