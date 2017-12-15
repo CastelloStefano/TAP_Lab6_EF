@@ -57,8 +57,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BugReportFactory\BugReportFactory.csproj">
+      <Project>{f9f4c0fa-2a11-4d88-9f74-51734565fc55}</Project>
+      <Name>BugReportFactory</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Database\Database.csproj">
-      <Project>{e6c45f41-9bcd-40da-afcc-e3146f9cf33a}</Project>
+      <Project>{E6C45F41-9BCD-40DA-AFCC-E3146F9CF33A}</Project>
       <Name>Database</Name>
     </ProjectReference>
   </ItemGroup>
