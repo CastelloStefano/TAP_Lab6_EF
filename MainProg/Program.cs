@@ -86,7 +86,28 @@ namespace MainProg
                 db.Reports.Add(report1);
                 db.Comments.Add(comment1);
                 db.SaveChanges();
+
+
+
+                var query = from u in db.Users
+                    select u.CodFisc;
+                foreach (var q in query)
+                {
+                    Console.WriteLine(q);
+                }
+                query = from u in db.Products
+                    select u.CommName;
+                foreach (var q in query)
+                {
+                    Console.WriteLine(q);
+                }
+
             }
+
+
+
+
+
             Console.ReadLine();
         }
     }

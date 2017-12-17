@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
-using System.Linq;
+//using System.Linq;
 
 namespace Database
 {
@@ -12,13 +12,15 @@ namespace Database
         public virtual string Via { get; set; }
         public virtual int Civico { get; set; }
         public virtual int Interno { get; set; }
-        }
+    }
 
     public class Utente
     {
         [Key]
         public virtual string CodFisc { get; set; }
+        [Required]
         public virtual string LogIn { get; set; }
+        [MaxLength(25)]
         public virtual string Name { get; set; }
         public virtual string Surname { get; set; }
         [Column("DoB", TypeName = "DateTime2")]
@@ -32,7 +34,9 @@ namespace Database
         [Key]
         public virtual Prodotto SigProd { get; set; }
         public virtual ICollection<Commento> Comments { get; set; }
+        [Key]
         public virtual Utente Author { get; set; }
+        [Required]
         public virtual string State { get; set; }
         [Key]
         [Column("CreationDate", TypeName = "DateTime2")]
@@ -45,6 +49,7 @@ namespace Database
     {
         [Key]
         public virtual int Id { get; set; }
+        [Required]
         public virtual string CommName { get; set; }
         public virtual ICollection<Prodotto> Req { get; set; }
         public virtual ICollection<Prodotto> NotComp { get; set; }
