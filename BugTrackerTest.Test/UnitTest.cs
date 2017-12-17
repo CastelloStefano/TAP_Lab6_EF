@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using BugReportFactory;
 using Database;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NUnit.Framework;
+using Assert = NUnit.Framework.Assert;
 
 namespace BugTrackerTest.Test
 {
@@ -93,6 +95,30 @@ namespace BugTrackerTest.Test
             Db.Comments.Add(Comment1);
             Db.SaveChanges();
 
+        }
+
+        [Test]
+        public void FindUsersOnDb()
+        { 
+            var query = from b in Db.Users
+                        select b;
+            Assert.That(query.First().Age,Is.EqualTo(24));
+
+        }
+
+        [Test]
+        public void FindCommentOnDb()
+        {
+            var query = from c in Db.Comments
+                select c;
+            Assert.That(query.First().Author.Name, Is.EqualTo("Stefano"));
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            Db.Dispose();
+            
         }
     }
 }
