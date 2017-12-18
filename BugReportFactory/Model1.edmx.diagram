@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f096bc0358084d098afe606bbbdda292" Name="Diagram1">
+        <EntityTypeShape EntityType="BugReportDataBaseModel.C__MigrationHistory" Width="1.5" PointX="3.375" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BugReportDataBaseModel.Commentoes" Width="1.5" PointX="3.5" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BugReportDataBaseModel.Prodottoes" Width="1.5" PointX="3.375" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BugReportDataBaseModel.Segnalaziones" Width="1.5" PointX="6.375" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BugReportDataBaseModel.Utentes" Width="1.5" PointX="0.625" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="BugReportDataBaseModel.FK_dbo_Commentoes_dbo_Segnalaziones_Segnalazione_CreationDate" ManuallyRouted="false" />
+        <AssociationConnector Association="BugReportDataBaseModel.FK_dbo_Commentoes_dbo_Utentes_Author_CodFisc" ManuallyRouted="false" />
+        <AssociationConnector Association="BugReportDataBaseModel.FK_dbo_Segnalaziones_dbo_Prodottoes_SigProd_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="BugReportDataBaseModel.FK_dbo_Segnalaziones_dbo_Utentes_Author_CodFisc" ManuallyRouted="false" />
+        <AssociationConnector Association="BugReportDataBaseModel.ProdottoProdottoes" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
